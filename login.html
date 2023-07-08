@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color:hsl(206, 92%, 94%);
+    box-shadow: 0 0 10px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-group input[type="button"] {
+  background-color: olive;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.form-group input:focus{
+  border: 1px solid #007bff;
+  outline: #007bff;
+}
+
+.form-group input[type="button"]:hover {
+  background-color:olivedrab;
+box-shadow:0 1rem 10rem   rgb(230, 214, 214) ;
+transform: scale(0.6,1.2);
+}
+
+.form-group-a {
+
+display: flex;
+justify-content: right;
+text-align: right;
+
+  width: 100%;
+}
+
+.form-group a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+
+}
+
+.form-group a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Additional styles can be added as needed */
+
+
+</style>
+<body>
+    <div class="container">
+        <h1>Login Form</h1>
+        <form action="">
+            <div class="form-group">
+                <label for="em">Email:</label>
+                <input type="email" id="em-li" required>
+                <label id="env" style="display: none;margin-top: 4px;" for="">Please Fill This Field</label>
+            </div>
+            <div class="form-group">
+                <label for="pass">Password:</label>
+                <input type="password" id="pass_li" required>
+                <label id="envpass" style="display: none;margin-top: 4px;" for="">Please Fill This Field</label>
+        <br>
+      </div>
+      <div class="form-group" >
+        <input type="button" id="login" value="Login">
+      </div>
+        
+            <div class="form-group-a">
+            
+                <a style="margin-top: -10px;" href="./signup.html">SignUp</a>
+            </div>
+        </form>
+      
+    </div>
+    <script  type="module" >
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword,sendEmailVerification} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCLaubO4H7hNTicO68NYwrlxs3ts0W6OVw",
+  authDomain: "xyz-project-82ea7.firebaseapp.com",
+  projectId: "xyz-project-82ea7",
+  storageBucket: "xyz-project-82ea7.appspot.com",
+  messagingSenderId: "661021249492",
+  appId: "1:661021249492:web:45ae4a4f8ef32f16319041"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+var btn=document.getElementById("login")
+btn.addEventListener("click",()=>{
+
+const email = document.getElementById("em-li").value
+  const password = document.getElementById("pass_li").value
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+      console.log(user);
+      window.location.href="./index.html"
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+   
+})
+
+
+    </script>
+</body>
+</html>

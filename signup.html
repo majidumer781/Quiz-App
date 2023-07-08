@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color:hsl(206, 92%, 94%);
+    box-shadow: 0 0 10px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+        }
+
+        .main {
+            width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 15px 20px  rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+ 
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+        }
+        input:focus{
+  border: 1px solid #007bff;
+  outline: #007bff;
+}
+
+        .a {
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .a a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .a a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: olive;
+            transition: 0.4s;
+            width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+        }
+        button:hover{
+            background-color:olivedrab;
+box-shadow:0 1rem 10rem   rgb(230, 214, 214) ;
+transform: scale(0.6,1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <form action="">
+            <h1>SignUp</h1>
+            <input type="email" id="em" placeholder="Email">
+            <label id="enm" style="display: none;margin-top: 4px;margin-left: -260px;" for="">Please Fill This Field</label>
+            <input type="password" id="pass" placeholder="Password">
+            <label id="enp" style="display: none;margin-top: 4px;margin-left: -260px;" for="">Please Fill This Field</label>
+        </form>
+        <br>
+        <button id="btn" >Sign Up</button>
+        <div class="a">
+            <a href="./login.html">Log in</a>
+        </div>
+    </div>
+
+    <script src="./signin.js" type="module" ></script>
+</body>
+
+</html>
